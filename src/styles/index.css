@@ -1,0 +1,19 @@
+body{
+    background-color: transparent !important;
+}
+
+#components-affix-demo-target .scrollable-container {
+    height: 100px;
+    overflow-y: hidden;
+  }
+#components-affix-demo-target .background {
+  padding-top: 60px;
+  height: 300px;
+}
+
+.btn-icon-chatbot{
+    border-radius: 100;
+    width: 80;
+    height: 80;
+    background: #1890FF;
+}
