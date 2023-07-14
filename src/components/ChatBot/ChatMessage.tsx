@@ -1,11 +1,79 @@
-import React from 'react';
+import React, { FC, PropsWithChildren, useEffect } from 'react';
+import { RobotOutlined, UserOutlined } from '@ant-design/icons';
+import { Avatar, Col, Row } from 'antd';
+import { Content } from 'antd/lib/layout/layout';
 
-const ChatMessage = ({ sender, content }: { sender: string, content: string }) => {
+export interface IChatMessage {
+    isOpen: boolean
+    isLoadingRespons: boolean
+    submitMessage: any[]
+}
+
+const ChatMessage: FC<PropsWithChildren<IChatMessage>> = ({ isOpen, isLoadingRespons, submitMessage }: any) => {
+
+    useEffect(() => {
+        let objDiv = document.querySelector('.ant-modal-body');
+        if (objDiv !== null) {
+            objDiv.scrollTop = objDiv.scrollHeight;
+        }
+    }, [isOpen, submitMessage]);
+
     return (
-        <div className={`chat-message ${sender}`}>
-            <span className="sender">{sender}: </span>
-            <span className="content">{content}</span>
-        </div>
+        <Content key="chatbot-message-content" id="chatbot-message-content">
+            <Row key="default-message" className='message message-bot'>
+                <Col span={2} className='avatar-bot'>
+                    <Avatar icon={<RobotOutlined />} size={40} />
+                </Col>
+                <Col span={21} className='messenge-content'>
+                    <p>
+                        Hi there. Feel free to ask me any question.
+                    </p>
+                </Col>
+            </Row>
+            {
+                submitMessage?.map((message: any, index: number) => {
+                    return (
+                        message?.sender === 'user' ?
+                            <>
+                                <Row key={index} className={`message message-user`}>
+                                    <Col span={22} className='messenge-content' style={{ paddingRight: '5px' }}>
+                                        <p >
+                                            {message?.text}
+                                        </p>
+                                    </Col>
+                                    <Col span={2} className='avatar-user'>
+                                        <Avatar icon={<UserOutlined />} size={40} />
+                                    </Col>
+                                </Row>
+                            </>
+                            :
+                            <Row key={index} className={`message message-bot`}>
+                                <Col span={2} className='avatar-bot'>
+                                    <Avatar icon={<RobotOutlined />} size={40} />
+                                </Col>
+                                <Col span={21} className='messenge-content'>
+                                    <p>
+                                        {message?.text}
+                                    </p>
+                                </Col>
+                            </Row>
+                    )
+                })
+            }
+            {isLoadingRespons &&
+                <Row className={`message message-bot`}>
+                    <Col span={2} className='avatar-bot' >
+                        <Avatar icon={<RobotOutlined />} size={40} />
+                    </Col>
+                    <Col span={21} style={{ background: '#E4E6EB', padding: '10px', borderRadius: 50, maxWidth: 50 }}>
+                        <div className="typing" >
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </Col>
+                </Row>}
+        </Content>
     );
 };
 

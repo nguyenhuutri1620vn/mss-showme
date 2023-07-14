@@ -1,0 +1,46 @@
+body{
+    background-color: transparent !important;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #192a3e;
+    
+      #root {
+        height: 100%;
+      }
+    
+}
+
+.scrollable-container {
+    overflow: hidden;
+  }
+
+.btn-icon-chatbot{
+    border-radius: 100% !important;
+    width: 80px !important;
+    height: 80px !important;
+    background: #1890FF !important;
+    opacity: 0.5;
+}
+
+.btn-icon-chatbot:hover{
+  opacity: 1;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #bbbbbb; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8; 
+}
