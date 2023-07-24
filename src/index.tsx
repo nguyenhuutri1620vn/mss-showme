@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import './index.scss';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById('showme') as HTMLElement
 );
 
 root.render(

@@ -9,17 +9,11 @@ export interface IIconProps {
 const IconChatbot: FC<PropsWithChildren<IIconProps>> = ({ setIsOpen }: any) => {
   const [container, setContainer] = useState<HTMLDivElement | null>(null);
 
-  const openChatbot = () => {
-    setIsOpen(true);
-    var valueToSend = "true";
-    window.parent.postMessage(valueToSend, "*");
-  }
-
   return (
     <div className="scrollable-container" ref={setContainer}>
       <div className="background">
         <Affix target={() => container} className='affix-chatbot-icon'>
-          <Button className='btn-icon-chatbot' onClick={openChatbot}>
+          <Button className='btn-icon-chatbot' onClick={() => setIsOpen(true)}>
             <MessageTwoTone style={{ fontSize: 50, paddingTop: 3 }} twoToneColor="#1890FF" color='#FFF' />
           </Button>
         </Affix>

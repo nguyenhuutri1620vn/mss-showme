@@ -26,7 +26,6 @@ const Chatbot: FC<PropsWithChildren<IInputProps>> = ({ inputRef, isOpen, setIsOp
     }
 
     const {
-        closeChatbot,
         sendMessage,
         handleInput
     } = useMemo(() => {
@@ -50,7 +49,7 @@ const Chatbot: FC<PropsWithChildren<IInputProps>> = ({ inputRef, isOpen, setIsOp
                 wrapClassName='chatbot-modal'
                 style={{ position: 'absolute', bottom: 0, right: 16, padding: 0 }}
                 open={isOpen}
-                onCancel={closeChatbot}
+                onCancel={() => setIsOpen(false)}
                 closeIcon={<MinusOutlined />}
                 footer={
                     <Row>

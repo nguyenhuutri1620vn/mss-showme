@@ -1,3 +1,5 @@
+import * as ChatServices from '../app/services';
+
 export default function getService({
     valueMessage,
     isLoadingRespons,
@@ -6,24 +8,16 @@ export default function getService({
     setValueMessage,
     setIsLoadingRespons,
 }: any) {
-    const closeChatbot = () => {
-        setTimeout(() => {
-            setIsOpen(false);
-            var valueToSend = "false";
-            window.parent.postMessage(valueToSend, "*");
-        }, 100)
-    }
 
-    const APISendMessage = () => {
+    const APISendMessage = async () => {
         const userMessage = valueMessage;
         setSubmitMessage((prev: any) => [...prev, { text: userMessage, sender: 'user' }]);
         setValueMessage('');
         setIsLoadingRespons(true);
-        setTimeout(() => {
-            const botResponse = 'Hi there. Feel free to ask me any question.';
-            setSubmitMessage((prev: any) => [...prev, { text: botResponse, sender: 'bot' }]);
-            setIsLoadingRespons(false);
-        }, 3000);
+        let resp: any = await ChatServices.sendMessage({ Message: userMessage })
+        const botResponse = resp.Message;
+        setSubmitMessage((prev: any) => [...prev, { text: botResponse, sender: 'bot', type: resp.Type, content: resp?.Content?.Datas }]);
+        setIsLoadingRespons(false);
     }
 
     const sendMessage = (e: any, type: string) => {
@@ -51,7 +45,6 @@ export default function getService({
         }
     }
     return {
-        closeChatbot,
         sendMessage,
         handleInput
     }

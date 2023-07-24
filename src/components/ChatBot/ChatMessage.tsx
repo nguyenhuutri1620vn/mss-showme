@@ -2,6 +2,7 @@ import React, { FC, PropsWithChildren, useEffect } from 'react';
 import { RobotOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Col, Row } from 'antd';
 import { Content } from 'antd/lib/layout/layout';
+import numeral from 'numeral';
 
 export interface IChatMessage {
     isOpen: boolean
@@ -9,6 +10,7 @@ export interface IChatMessage {
     submitMessage: any[]
 }
 
+const formatNumber = '0,0.00'
 const ChatMessage: FC<PropsWithChildren<IChatMessage>> = ({ isOpen, isLoadingRespons, submitMessage }: any) => {
 
     useEffect(() => {
@@ -54,6 +56,24 @@ const ChatMessage: FC<PropsWithChildren<IChatMessage>> = ({ isOpen, isLoadingRes
                                 <Col span={21} className='messenge-content'>
                                     <p>
                                         {message?.text}
+                                        {message?.type === 'json' &&
+                                            <table className='table-chat-bot'>
+                                                <tr>
+                                                    <th className='table-chat-bot'>ID</th>
+                                                    <th className='table-chat-bot'>Vendor Name</th>
+                                                    <th className='table-chat-bot'>Spend</th>
+                                                </tr>
+                                                {message?.content.filter((n: any) => n.id !== 0).map((item: any, index: number) => {
+                                                    return (
+                                                        <tr key={index}>
+                                                            <td className='table-chat-bot'>{item?.id !== -1 && item.id}</td>
+                                                            <td className='table-chat-bot'>{item?.vendor_name}</td>
+                                                            <td className='table-chat-bot'>{numeral(item?.total_spend).format(formatNumber)}</td>
+                                                        </tr>
+                                                    )
+                                                })}
+                                            </table>
+                                        }
                                     </p>
                                 </Col>
                             </Row>

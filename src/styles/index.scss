@@ -1,25 +1,28 @@
 #chatbot-message-content{
   padding: 12px 0;
 }
+.affix-chatbot-icon .ant-affix{
+  top: 89% !important;
+}
 .affix-chatbot-icon{
   box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    color: rgba(0, 0, 0, 0.88);
-    font-size: 14px;
-    line-height: 1.5714285714285714;
-    list-style: none;
-    z-index: 99;
-    display: block;
-    border: none;
-    position: fixed;
-    height: auto;
-    box-shadow: none;
-    min-height: 40px;
-    inset-inline-end: 24px;
-    inset-block-end: 48px;
-    border-radius: 8px;
-    bottom: 16px;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 14px;
+  line-height: 1.5714285714285714;
+  list-style: none;
+  z-index: 99;
+  display: block;
+  border: none;
+  position: fixed;
+  height: auto;
+  box-shadow: none;
+  min-height: 40px;
+  inset-inline-end: 24px;
+  inset-block-end: 48px;
+  border-radius: 8px;
+  bottom: 16px;
 }
 
 .btn-icon-chatbot{
@@ -153,7 +156,7 @@ $speed: 1.5s;
   background-color: rgb(228, 230, 235);
   max-width: 66%;
   font-size: 14px;
-  padding: 9px;
+  padding: 11px;
   border-radius: 20px;
   width: fit-content;
 }
@@ -182,4 +185,8 @@ $speed: 1.5s;
 
 .ant-input{
   background-color: rgb(240, 240, 240) !important;
+}
+
+.table-chat-bot {
+  border:1px solid black;
 }
