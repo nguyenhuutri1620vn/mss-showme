@@ -3,15 +3,18 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.scss';
+import { ConfigProvider } from 'antd';
 
 const root = ReactDOM.createRoot(
   document.getElementById('showme') as HTMLElement
 );
 
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <ConfigProvider prefixCls='showme'>
     <App />
-  </React.StrictMode>
+  </ConfigProvider>
+  // </React.StrictMode>
 );
 
 

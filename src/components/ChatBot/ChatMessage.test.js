@@ -11,12 +11,12 @@ const chatMessageTrue = <ChatMessage submitMessage={[{text: 'Hello', sender: 'us
 
 test('test id content chat message', ()=> {
     const wrapper = shallow(chatMessage);
-    expect(wrapper.props().id).toBe('chatbot-message-content');
+    expect(wrapper.props().id).toBe('chatbot-messenge-chatbot-content');
 });
 
 test('test className bot', ()=> {
     const wrapper = shallow(chatMessageFalse);
-    expect(wrapper.props().children[0].props.className).toBe('message message-bot');
+    expect(wrapper.props().children[0].props.className).toBe('message message-chatbot');
 });
 
 test('test size avatar', ()=> {

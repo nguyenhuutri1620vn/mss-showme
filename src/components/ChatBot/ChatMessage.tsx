@@ -21,8 +21,8 @@ const ChatMessage: FC<PropsWithChildren<IChatMessage>> = ({ isOpen, isLoadingRes
     }, [isOpen, submitMessage]);
 
     return (
-        <Content key="chatbot-message-content" id="chatbot-message-content">
-            <Row key="default-message" className='message message-bot'>
+        <Content key="chatbot-messenge-chatbot-content" id="chatbot-messenge-chatbot-content">
+            <Row key="default-message" className='message-chatbot message-bot'>
                 <Col span={2} className='avatar-bot'>
                     <Avatar icon={<RobotOutlined />} size={40} />
                 </Col>
@@ -37,19 +37,19 @@ const ChatMessage: FC<PropsWithChildren<IChatMessage>> = ({ isOpen, isLoadingRes
                     return (
                         message?.sender === 'user' ?
                             <>
-                                <Row key={index} className={`message message-user`}>
+                                <Row key={index} className={`message-chatbot message-user`}>
                                     <Col span={22} className='messenge-content' style={{ paddingRight: '5px' }}>
                                         <p >
                                             {message?.text}
                                         </p>
                                     </Col>
-                                    <Col span={2} className='avatar-user'>
+                                    <Col span={2} className='avatar-chatbot-user'>
                                         <Avatar icon={<UserOutlined />} size={40} />
                                     </Col>
                                 </Row>
                             </>
                             :
-                            <Row key={index} className={`message message-bot`}>
+                            <Row key={index} className={`message-chatbot message-bot`}>
                                 <Col span={2} className='avatar-bot'>
                                     <Avatar icon={<RobotOutlined />} size={40} />
                                 </Col>
@@ -81,12 +81,12 @@ const ChatMessage: FC<PropsWithChildren<IChatMessage>> = ({ isOpen, isLoadingRes
                 })
             }
             {isLoadingRespons &&
-                <Row className={`message message-bot`}>
+                <Row className={`message-chatbot message-bot`}>
                     <Col span={2} className='avatar-bot' >
                         <Avatar icon={<RobotOutlined />} size={40} />
                     </Col>
                     <Col span={21} style={{ background: '#E4E6EB', padding: '10px', borderRadius: 50, maxWidth: 50 }}>
-                        <div className="typing" >
+                        <div className="chatbot-typing" >
                             <span></span>
                             <span></span>
                             <span></span>

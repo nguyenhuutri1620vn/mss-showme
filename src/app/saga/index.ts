@@ -38,20 +38,6 @@ export function* checkToken(): any {
     // if (queryObject.filter_id === undefined) {
     yield put(routerAction.replace(replaceUrl));
     // }
-    localStorage.setItem('From', '');
-    localStorage.setItem('To', '');
-    localStorage.setItem('AllCorpCost', '');
-    localStorage.setItem('AllVendor', '');
-    localStorage.setItem('AllFilters', '');
-    localStorage.setItem('FilterTypeIds', '');
-    localStorage.setItem('FilterType', 'noun');
-    localStorage.setItem('Corps', '');
-    localStorage.setItem('CostCenters', '');
-    localStorage.setItem('Vendors', '');
-    localStorage.setItem('CorpsOfUknown', '');
-    localStorage.setItem('LoadProfile', "0");
-    localStorage.setItem('SessionId', '');
-    localStorage.setItem('OrgDate', '01-01');
   } else if (Cookies.get('_token')) {
     // Cookies.get('_token')
     // localStorage.getItem('token')
