@@ -28,7 +28,7 @@ const ChatMessage: FC<PropsWithChildren<IChatMessage>> = ({ isOpen, isLoadingRes
                 </Col>
                 <Col span={21} className='messenge-content'>
                     <p>
-                        Hi there. Feel free to ask me any question.
+                        Hi there. Feel free to ask me any question
                     </p>
                 </Col>
             </Row>

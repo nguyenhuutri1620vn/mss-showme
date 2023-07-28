@@ -41,8 +41,9 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "PORT=3636 && react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build && node renameFiles.js && cp -r build/static ../mss/mss-frontend/public && cp -r build/static/js ../msss/public/javascripts && cp -r build/static/css ../msss/public/stylessheets",
+    "build:dev": "react-scripts build && node renameFiles.js && cp -r build/static ../mss-frontend/public && cp -r build/static/js ../mss/public/javascripts && cp -r build/static/css ../mss/public/stylessheets",
     "test": "jest",
     "eject": "react-scripts eject"
   },

@@ -1,6 +1,9 @@
 #chatbot-messenge-chatbot-content{
   padding: 12px 0;
 }
+*, *::after, *::before {
+  box-sizing: border-box;
+}
 .affix-chatbot-icon .showme-affix{
   top: 89% !important;
 }
@@ -886,19 +889,6 @@ div.showme-typography-edit-content.showme-typography-rtl {
 .btn-icon-chatbot:hover {
   opacity: 1;
 }
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-::-webkit-scrollbar-thumb {
-  background: #bbb;
-  border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
-}
 
 [class*="showme-"] input::-ms-clear,
 [class*="showme-"] input::-ms-reveal,
@@ -912,53 +902,12 @@ div.showme-typography-edit-content.showme-typography-rtl {
 @-ms-viewport {
   width: device-width;
 }
-body {
-  font-feature-settings: "tnum";
-  background-color: #fff;
-  color: rgba(0, 0, 0, 0.85);
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
-    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  font-size: 14px;
-  font-varishowme: tabular-nums;
-  line-height: 1.5715;
-  margin: 0;
-}
 [tabindex="-1"]:focus {
   outline: none!important;
-}
-hr {
-  box-sizing: initial;
-  height: 0;
-  overflow: visible;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: rgba(0, 0, 0, 0.85);
-  font-weight: 500;
-  margin-bottom: 0.5em;
-  margin-top: 0;
 }
 p {
   margin-bottom: 1em;
   margin-top: 0;
-}
-abbr[data-original-title],
-abbr[title] {
-  border-bottom: 0;
-  cursor: help;
-  text-decoration: underline;
-  -webkit-text-decoration: underline dotted;
-  text-decoration: underline dotted;
-}
-address {
-  font-style: normal;
-  line-height: inherit;
-  margin-bottom: 1em;
 }
 input[type="number"],
 input[type="password"],
@@ -966,122 +915,15 @@ input[type="text"],
 textarea {
   -webkit-appearance: none;
 }
-dl,
-ol,
-ul {
-  margin-bottom: 1em;
-  margin-top: 0;
-}
-ol ol,
-ol ul,
-ul ol,
-ul ul {
-  margin-bottom: 0;
-}
-dt {
-  font-weight: 500;
-}
-dd {
-  margin-bottom: 0.5em;
-  margin-left: 0;
-}
-blockquote {
-  margin: 0 0 1em;
-}
-dfn {
-  font-style: italic;
-}
-b,
-strong {
-  font-weight: bolder;
-}
-small {
-  font-size: 80%;
-}
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: initial;
-}
-sub {
-  bottom: -0.25em;
-}
-sup {
-  top: -0.5em;
-}
-a {
-  -webkit-text-decoration-skip: objects;
-  background-color: initial;
-  color: #1890ff;
-  cursor: pointer;
-  outline: none;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-a:hover {
-  color: #40a9ff;
-}
-a:active {
-  color: #096dd9;
-}
-a:active,
-a:focus,
-a:hover {
-  outline: 0;
-  text-decoration: none;
-}
-a[disabled] {
-  color: rgba(0, 0, 0, 0.25);
-  cursor: not-allowed;
-}
-code,
-kbd,
-pre,
-samp {
-  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
-    monospace;
-  font-size: 1em;
-}
-pre {
-  margin-bottom: 1em;
-  margin-top: 0;
-  overflow: auto;
-}
-figure {
-  margin: 0 0 1em;
-}
-img {
-  border-style: none;
-  vertical-align: middle;
-}
 [role="button"],
 a,
-area,
 button,
-input:not([type="range"]),
-label,
-select,
-summary,
-textarea {
+input:not([type="range"])
+{
   touch-action: manipulation;
 }
-table {
-  border-collapse: collapse;
-}
-caption {
-  caption-side: bottom;
-  color: rgba(0, 0, 0, 0.45);
-  padding-bottom: 0.3em;
-  padding-top: 0.75em;
-  text-align: left;
-}
 button,
-input,
-optgroup,
-select,
-textarea {
+input {
   color: inherit;
   font-family: inherit;
   font-size: inherit;
@@ -1092,8 +934,7 @@ button,
 input {
   overflow: visible;
 }
-button,
-select {
+button{
   text-transform: none;
 }
 [type="reset"],
@@ -1120,30 +961,7 @@ input[type="month"],
 input[type="time"] {
   -webkit-appearance: listbox;
 }
-textarea {
-  overflow: auto;
-  resize: vertical;
-}
-fieldset {
-  border: 0;
-  margin: 0;
-  min-width: 0;
-  padding: 0;
-}
-legend {
-  color: inherit;
-  display: block;
-  font-size: 1.5em;
-  line-height: inherit;
-  margin-bottom: 0.5em;
-  max-width: 100%;
-  padding: 0;
-  white-space: normal;
-  width: 100%;
-}
-progress {
-  vertical-align: initial;
-}
+
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
   height: auto;
@@ -1160,21 +978,8 @@ progress {
   -webkit-appearance: button;
   font: inherit;
 }
-output {
-  display: inline-block;
-}
-summary {
-  display: list-item;
-}
-template {
-  display: none;
-}
 [hidden] {
   display: none!important;
-}
-mark {
-  background-color: #feffe6;
-  padding: 0.2em;
 }
 ::-moz-selection {
   background: #1890ff;

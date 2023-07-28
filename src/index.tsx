@@ -10,11 +10,11 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  // <React.StrictMode>
-  <ConfigProvider prefixCls='showme'>
-    <App />
-  </ConfigProvider>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <ConfigProvider prefixCls='showme'>
+      <App />
+    </ConfigProvider>
+  </React.StrictMode>
 );
 
 
