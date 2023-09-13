@@ -22,7 +22,7 @@ export class Api {
       this.getDefaultHeader = getDefaultHeader;
     } else {
       this.instance = axios.create({
-        baseURL: Config.MSS_SERVICES_URL,
+        baseURL: 'http://localhost:8989',
       });
     }
   }
@@ -72,21 +72,8 @@ export class Api {
     return new Promise((resolve, reject) => {
       response.then(
         (result: any) => {
-          if (result.status === 200) {
+          if (result.status === 200 || !Cookies.get('_token')) {
             Cookies.set('_token', result.data.Token, { path: "" })
-            //localStorage.setItem('token', result.data.Token);
-          }
-          if (result.status === 200 && result.data.BuildData === 1) {
-            global.store.dispatch(appActions.setBuildData({
-              modalBuild: true,
-              typeBuild: true,
-            }));
-          }
-          if (result.status === 200 && result.data.BuildData === 2) {
-            global.store.dispatch(appActions.setBuildData({
-              modalBuild: true,
-              typeBuild: false,
-            }));
           }
           resolve(result);
         },

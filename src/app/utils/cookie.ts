@@ -2,12 +2,6 @@ import Cookies, { CookieAttributes } from 'js-cookie';
 import _ from 'lodash';
 import moment from 'moment';
 
-// const optionInit = {
-//     // expires: new Date(),
-//     // path: '/',
-//     // domain: `.${domain}`,
-// };
-
 class Cookie {
   keys = {
     TOKEN: 'token',

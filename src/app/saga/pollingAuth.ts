@@ -5,7 +5,6 @@ import Config from '../config';
 import Utils from '../utils';
 import SagaPoll from '../utils/SagaPoll';
 
-// import * as appSelector from '../selectors';
 import * as appActions from '../actions';
 import Cookies from 'js-cookie';
 
@@ -13,17 +12,6 @@ class PollToken extends SagaPoll {
   *pollSync(firstToken: string, user_id: string, org_id: string, flag: boolean): any {
     try {
       yield call(refreshToken, firstToken, user_id, org_id, flag);
-
-      // while (true) {
-      //   yield delay(1000 * 60 * 10);
-
-      //   const authToken = yield select(appSelector.tokenSelector);
-      //   if (authToken) {
-      //     yield call(refreshToken, authToken);
-      //   } else {
-      //     window.location.href = Config.SIGN_IN_URL;
-      //   }
-      // }
     } catch (error) {
       Utils.handleError(error);
     } finally {
@@ -63,16 +51,13 @@ export function* refreshToken(token: any, user_id: string, org_id: string, flag:
       localStorage.setItem('OrgAbbre', response.data.OrgAbbre);
       localStorage.setItem('OrgDate', response.data.OrgDate);
       yield put(appActions.saveToken(response.data.Token));
-      yield put(appActions.setCurrentUser(payload));
     } else {
       window.location.href = Config.SIGN_IN_URL + '?url_new_insight=' + window.location.href.replaceAll('&', "and");
     }
   } catch (error) {
     Utils.handleError(error);
-    // localStorage.removeItem('token');
     Cookies.remove('_token');
     window.location.href = Config.SIGN_IN_URL + '?url_new_insight=' + window.location.href.replaceAll('&', "and");
-    // window.location.href = Config.CHECK_STATUS_USER + '?url_new_insight=' + window.location.href.replaceAll('&', "and");
   }
 }
 

@@ -8,13 +8,14 @@ export interface IInputProps {
     submitMessage: any[]
     inputRef: any
     isOpen: boolean
+    isLoadingRespons: boolean,
     setIsOpen: (value: boolean) => void;
     setSubmitMessage: (value: any) => void;
+    setIsLoadingRespons: (value: boolean) => void;
 }
 
-const Chatbot: FC<PropsWithChildren<IInputProps>> = ({ inputRef, isOpen, setIsOpen, submitMessage, setSubmitMessage }: any) => {
+const Chatbot: FC<PropsWithChildren<IInputProps>> = ({ inputRef, isOpen, isLoadingRespons, setIsOpen, submitMessage, setSubmitMessage, setIsLoadingRespons }: any) => {
     const [valueMessage, setValueMessage] = useState<string>('');
-    const [isLoadingRespons, setIsLoadingRespons] = useState<boolean>(false);
 
     const input = {
         valueMessage,

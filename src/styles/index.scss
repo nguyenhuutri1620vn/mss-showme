@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 .affix-chatbot-icon .showme-affix{
-  top: 89% !important;
+  top: 92% !important;
 }
 .affix-chatbot-icon{
   box-sizing: border-box;
@@ -23,9 +23,12 @@
   box-shadow: none;
   min-height: 40px;
   inset-inline-end: 24px;
-  inset-block-end: 48px;
   border-radius: 8px;
   bottom: 16px;
+}
+
+.showme-input-affix-wrapper .showme-input{
+  border: none !important
 }
 
 .btn-icon-chatbot{

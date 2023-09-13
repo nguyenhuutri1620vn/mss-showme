@@ -7,6 +7,7 @@ const App = () => {
     const inputRef = useRef(null);
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [submitMessage, setSubmitMessage] = useState<any>([]);
+    const [isLoadingRespons, setIsLoadingRespons] = useState<boolean>(false);
 
     return (
         <>
@@ -15,8 +16,10 @@ const App = () => {
                     isOpen={isOpen}
                     inputRef={inputRef}
                     submitMessage={submitMessage}
+                    isLoadingRespons={isLoadingRespons}
                     setIsOpen={setIsOpen}
                     setSubmitMessage={setSubmitMessage}
+                    setIsLoadingRespons={setIsLoadingRespons}
                 />
                 :
                 <IconChatBot
