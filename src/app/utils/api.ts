@@ -4,9 +4,6 @@ import Config from '../config';
 import { localStorage } from '../utils';
 import { Object } from '../types';
 import Cookies from 'js-cookie';
-import * as appActions from '../actions';
-// import queryString from 'query-string';
-// import { message } from 'antd';
 
 type optionsType = object | undefined | null;
 
@@ -28,8 +25,6 @@ export class Api {
   }
 
   getDefaultOptions(isAuth = true) {
-    // const token = cookie.getItem(cookie.keys.TOKEN) || null;
-    // let auth = isAuth ? { Authorization: 'Bearer ' + token } : {};
     return {
       headers: {
         ...(typeof this.getDefaultHeader === 'function' ? this.getDefaultHeader() : {}),
@@ -50,19 +45,7 @@ export class Api {
   }
 
   handleError(error: AxiosError) {
-    if (error.message === 'Network Error') {
-      // Toast.error('Network error!');
-    } else if (error.response && error.response.status === 403) {
-      // if (error.response.data) {
-      //   if (error.response.data.message === 'UserRoleInvalid') {
-      //     global.store.dispatch(appActions.setBuildData({
-      //       modalBuild: true,
-      //       typeBuild: false,
-      //     }));
-      //   }
-      // }
-
-    } else if (error.response && error.response.status === 401) {
+    if (error.response && error.response.status === 401) {
       Cookies.remove('_token');
       window.location.href = Config.SIGN_IN_URL + '?url_new_insight=' + window.location.href.replaceAll('&', "and");
     }

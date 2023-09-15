@@ -10,14 +10,19 @@ export default function getService({
 }: any) {
 
     const APISendMessage = async () => {
-        const userMessage = valueMessage;
-        setSubmitMessage((prev: any) => [...prev, { text: userMessage, sender: 'user' }]);
-        setValueMessage('');
-        setIsLoadingRespons(true);
-        let resp: any = await ChatServices.sendMessage({ Message: userMessage })
-        const botResponse = resp.Message;
-        setSubmitMessage((prev: any) => [...prev, { text: botResponse, sender: 'bot', type: resp.Type, content: resp?.Content?.Datas }]);
-        setIsLoadingRespons(false);
+        try {
+            const userMessage = valueMessage;
+            setSubmitMessage((prev: any) => [...prev, { text: userMessage, sender: 'user' }]);
+            setValueMessage('');
+            setIsLoadingRespons(true);
+            let resp: any = await ChatServices.sendMessage({ Message: userMessage })
+            const botResponse = resp.Message;
+            setSubmitMessage((prev: any) => [...prev, { text: botResponse, sender: 'bot', type: resp.Type, content: resp?.Content?.Datas }]);
+            setIsLoadingRespons(false);
+        } catch (error) {
+            setSubmitMessage((prev: any) => [...prev, { text: 'Something went wrong !!!', sender: 'bot', type: '', content: '' }]);
+            setIsLoadingRespons(false);
+        }
     }
 
     const sendMessage = (e: any, type: string) => {

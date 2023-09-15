@@ -38,7 +38,7 @@ const ChatMessage: FC<PropsWithChildren<IChatMessage>> = ({ isOpen, isLoadingRes
                         message?.sender === 'user' ?
                             <>
                                 <Row key={index} className={`message-chatbot message-user`}>
-                                    <Col span={22} className='messenge-content' style={{ paddingRight: '5px' }}>
+                                    <Col span={22} className='messenge-content' style={{ paddingRight: '5px', boxSizing: 'border-box' }}>
                                         <p >
                                             {message?.text}
                                         </p>

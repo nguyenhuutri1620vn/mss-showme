@@ -1,9 +1,6 @@
 #chatbot-messenge-chatbot-content{
   padding: 12px 0;
 }
-*, *::after, *::before {
-  box-sizing: border-box;
-}
 .affix-chatbot-icon .showme-affix{
   top: 92% !important;
 }
@@ -929,7 +926,7 @@ button,
 input {
   color: inherit;
   font-family: inherit;
-  font-size: inherit;
+  // font-size: inherit;
   line-height: inherit;
   margin: 0;
 }
@@ -15744,6 +15741,7 @@ textarea.showme-input-number {
   position: relative;
   transition: all 0.3s;
   width: 100%;
+  box-sizing: border-box;
 }
 .showme-input-affix-wrapper::-moz-placeholder {
   color: #bfbfbf;
