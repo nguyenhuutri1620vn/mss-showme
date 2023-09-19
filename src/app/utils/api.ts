@@ -19,7 +19,7 @@ export class Api {
       this.getDefaultHeader = getDefaultHeader;
     } else {
       this.instance = axios.create({
-        baseURL: 'http://localhost:8989',
+        baseURL: 'http://172.16.9.47:8989',
       });
     }
   }
@@ -35,7 +35,6 @@ export class Api {
 
   attachToken(payload: any = {}) {
     const token = Cookies.get('_token');
-    //const token = localStorage.getItem('token');
     const sessionId = localStorage.getItem('sessionId');
     return {
       ...payload,
@@ -55,9 +54,6 @@ export class Api {
     return new Promise((resolve, reject) => {
       response.then(
         (result: any) => {
-          if (result.status === 200 || !Cookies.get('_token')) {
-            Cookies.set('_token', result.data.Token, { path: "" })
-          }
           resolve(result);
         },
         error => {

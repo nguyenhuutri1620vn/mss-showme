@@ -2,7 +2,6 @@ import React, { FC, PropsWithChildren, useEffect } from 'react';
 import { RobotOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Col, Row } from 'antd';
 import { Content } from 'antd/lib/layout/layout';
-import numeral from 'numeral';
 import { getTypeReponse } from '../AnswerType';
 
 export interface IChatMessage {
@@ -11,7 +10,6 @@ export interface IChatMessage {
     submitMessage: any[]
 }
 
-const formatNumber = '0,0.00'
 const ChatMessage: FC<PropsWithChildren<IChatMessage>> = ({ isOpen, isLoadingRespons, submitMessage }: any) => {
     useEffect(() => {
         let objDiv = document.querySelector('.ant-modal-body');

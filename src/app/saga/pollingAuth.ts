@@ -32,24 +32,6 @@ export function* refreshToken(token: any, user_id: string, org_id: string, flag:
     });
     const response: any = yield axios.post(Config.VALIDATE_URL, { Token: token });
     if (response.data.IsValid === true) {
-      const payload: any = {
-        isToken: response.data.IsValid,
-        isValid: response.data.isValid,
-        userEmail: response.data.UserEmail,
-        userName: response.data.UserName,
-        userId: response.data.UserId,
-        orgId: response.data.OrgId,
-        orgName: response.data.OrgName,
-        orgAbbre: response.data.OrgAbbre,
-        sessionId: response.data.SessionId
-      };
-      Cookies.set('_token', response.data.Token, { path: "" })
-      // localStorage.setItem('token', response.data.Token);
-      localStorage.setItem('SessionId', response.data.SessionId);
-      localStorage.setItem('user_id', response.data.UserId);
-      localStorage.setItem('org_id', response.data.OrgId);
-      localStorage.setItem('OrgAbbre', response.data.OrgAbbre);
-      localStorage.setItem('OrgDate', response.data.OrgDate);
       yield put(appActions.saveToken(response.data.Token));
     } else {
       window.location.href = Config.SIGN_IN_URL + '?url_new_insight=' + window.location.href.replaceAll('&', "and");
